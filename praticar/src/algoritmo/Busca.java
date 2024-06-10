@@ -4,6 +4,16 @@ package algoritmo;
 
 public class Busca {
 
+    public static Integer simples(Integer[] lista, int busca){
+
+        int posicao = 0;
+
+        while (lista[posicao] != busca){
+            posicao++;
+        }
+        return posicao;
+    }
+
     //public para poder pegar esse metodo em qualqur lugar e static para n precisar instanciar a classe onde eu for usar esse metodo
     public static Integer binario(Integer[] lista, int busca) {
         int baixo = 0;
@@ -25,13 +35,5 @@ public class Busca {
         return null;
     }
 
-    public static Integer simples(Integer[] lista, int busca){
-
-        int posicao = 0;
-
-        while (lista[posicao] != busca){
-            posicao++;
-        }
-        return posicao;
-    }
+   
 }
