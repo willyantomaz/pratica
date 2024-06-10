@@ -4,7 +4,7 @@ package algoritmo;
 
 public class Busca {
 
-    //public par apoder pegar esse metedo em qualqur lugar e static par an precisar instanciar a classe onde eu for usar esse metodo
+    //public para poder pegar esse metodo em qualqur lugar e static para n precisar instanciar a classe onde eu for usar esse metodo
     public static Integer binario(Integer[] lista, int busca) {
         int baixo = 0;
         int alto = lista.length - 1;
