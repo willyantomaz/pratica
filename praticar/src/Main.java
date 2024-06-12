@@ -49,7 +49,7 @@ public class Main {
 
         System.out.println(Arrays.toString(listaOrdenadaCrescente));
 
-        System.out.println("Busca simples: "+simples(listaOrdenadaCrescente,1));
+        System.out.println("Busca simples: "+simples(listaOrdenadaCrescente,2));
 
         //funcão para fazer um busaca binaria na lista crescente, passa como parametro a lista e o numero que está procurando
         System.out.println("Está na posição:"+binario(listaOrdenadaCrescente,9));

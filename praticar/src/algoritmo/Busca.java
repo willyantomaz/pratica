@@ -22,7 +22,7 @@ public class Busca {
         while (baixo <= alto) {
             int meio = (baixo + alto) / 2;
 
-            if (lista[meio].equals(busca)) {
+            if (lista[meio] == busca) {
                 return meio;
             } else if (lista[meio] < busca) {
                 baixo = meio + 1;
