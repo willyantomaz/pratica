@@ -1,58 +1,77 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
-import static algoritmo.Busca.binario;
-import static algoritmo.Busca.simples;
+import static algoritmo.Busca.*;
 import static algoritmo.Ordenacao.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        //Criando uma lista desordenada
-        Integer[]  lista = {12, 2, 3, 40, 5, 6, 7, 8, 9, 10,22, 12, 13, 14, 15, 1, 17, 18};
 
-        //Criando uma lista que vai receber a lista ordenada crescente e decrescente
-        Integer[] listaOrdenadaDecrescente;
-        Integer[] listaOrdenadaCrescente;
+       int opcao;
+       do {
+           Scanner scanner = new Scanner(System.in);
+           //Criando uma lista desordenada
+           Integer[]  lista = {12, 2, 3, 40, 5, 6, 7, 8, 9, 10,22, 12, 13, 14, 15, 1, 17, 18};
 
-        int maiorElemento;
-        int menorElemento;
+           System.out.println("Escolha qual programa vc quer testar: " +
+                   "\n 1-> palindromo " +
+                   "\n 2->menor elemento de uma lista" +
+                   " \n 3-> maior elemento de uma lista" +
+                   " \n 4->orderna lista(crescente)" +
+                   " \n 5->ordernar lista(decresente)" +
+                   "\n 6-> busca simples" +
+                   "\n 7-> busca binaria"+
+                   "\n 8-> sair");
 
-        maiorElemento = pegarMaiorElemento(lista);
-        menorElemento = pegarMenorElemento(lista);
+           opcao = Integer.parseInt(scanner.nextLine());
 
-        /*
-        Pq ultilizar a função clone() ? se passar lista por referencia ele vai alterar os dados da lista, como assim ?
-        se eu estou passando passando como paramentro n era para alterar só o paramentro,
-        sim e não, quando passamos uma variavel como parametro realmente só vamos trocar o valor do parametro sem interferir no valor da variavel real,
-        porem quando falamos de um array ou de uma lista não funciona bem assim,
-        o array ele não armazena os numeros q eu coloquei mas sim o endereço de memoria deles,
-        por exemplo o valor 12 está na posição A1 entaõ o array está guardando, lista = {A1},
-        o endereço de memoria dele então quando passamos ele como parametro a lista real e a lista de referencia vão ter os mesmos valroas,
-        logo os mesmos endereços de memoria,
-        então quando alteramos o endereço de memoria do parametro estamos alterando o valor no endereço armazenado por ele,
-        trocando assim os valores da lista real.
-         */
+           switch (opcao){
 
-        listaOrdenadaDecrescente = ordenaListaMaior(lista.clone());
+               case 1:
+                   System.out.println("Escreva uma palavra: ");
+                   String palavra = scanner.nextLine();
+                   Palindromo.verificaPalavra(palavra);
+                   break;
 
-        listaOrdenadaCrescente = ordenaListaMenor(lista.clone());
+               case 2:
+                   System.out.println("a nossa lista é essa: \n "+Arrays.toString(lista));
+                   System.out.println("O menor elemento está na posição: "+pegarMenorElemento(lista));
+                   break;
 
+               case 3:
+                   System.out.println("a nossa lista é essa: \n "+Arrays.toString(lista));
+                   System.out.println("O maior elemento está na posição: "+pegarMaiorElemento(lista));
+                   break;
 
+               case 4:
+                   System.out.println("a nossa lista é essa: \n "+Arrays.toString(lista));
+                   System.out.println("A lista ordenada crescente é: \n "+Arrays.toString(ordenaListaMenor(lista)));
+                   break;
 
-        System.out.println(Arrays.toString(lista));
+               case 5:
+                   System.out.println("a nossa lista é essa: \n "+Arrays.toString(lista));
+                   System.out.println("A lista ordenada decrescente é: \n "+Arrays.toString(ordenaListaMaior(lista)));
+                   break;
+               case 6:
+                   System.out.println("a nossa lista é essa: \n "+Arrays.toString(lista));
+                   System.out.println("\n qual numero vc deseja buscar ?: ");
+                   int busca = Integer.parseInt(scanner.nextLine());
+                   System.out.println("O elemento está na posição: "+simples(lista,busca));
+                   break;
 
-        System.out.println("posição do maior elemento: "+maiorElemento);
+               case 7:
+                   System.out.println("a nossa lista é essa: \n "+Arrays.toString(ordenaListaMenor(lista)));
+                   System.out.println("\n qual numero vc deseja buscar ?: ");
+                   int buscaBinaria = Integer.parseInt(scanner.nextLine());
+                   System.out.println("O elemento está na posição: "+binario(lista,buscaBinaria));
+                   break;
 
-        System.out.println("posição do menor elemento: "+menorElemento);
+               case 8:
+                   System.exit(0);
+                   break;
+           }
 
-        System.out.println(Arrays.toString(listaOrdenadaDecrescente));
-
-        System.out.println(Arrays.toString(listaOrdenadaCrescente));
-
-        System.out.println("Busca simples: "+simples(listaOrdenadaCrescente,2));
-
-        //funcão para fazer um busaca binaria na lista crescente, passa como parametro a lista e o numero que está procurando
-        System.out.println("Está na posição:"+binario(listaOrdenadaCrescente,9));
-
+       }while (true);
     }
 }
